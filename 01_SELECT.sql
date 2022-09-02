@@ -13,11 +13,13 @@ SELECT * FROM EMPLOYEE;
 -- SELECT 컬럼명 FROM 테이블명;
 --> 어떤 테이블의 특정 컬럼을 조회하겠다라는 코드
 
-SELECT * FROM EMPLOYEE;
+SELECT * 
+FROM EMPLOYEE;
 -- '*' : '별'은 ALL, 모든, 전부를 뜻한다.
 
-SELECT EMP_ID, EMP_NAME, PHONE FROM EMPLOYEE;
-테이블의 아이디 이름 전화번호만 보겠다는 코드
+SELECT EMP_ID, EMP_NAME, PHONE 
+FROM EMPLOYEE;
+-- 테이블의 아이디 이름 전화번호만 보겠다는 코드
 ------------------------------------------------------------------------------------
 
 -- < 컬럼 값 산술 연산 > 
@@ -40,7 +42,7 @@ FROM EMPLOYEE;
 
 -- EMPLOYEE 테이블에서 이름, 입사일, 오늘 날짜 조회
 
-SELECT EMP_NAME, HIRE_DATE, SYSDATE 
+SELECT EMP_NAME, HIRE_DATE, SYSDATE
 FROM EMPLOYEE;
 -- 1990-02-06 00:00:00.000
 
@@ -54,7 +56,7 @@ SELECT SYSDATE FROM DUAL; (현재시간만 조회됨)
 
 
 -- 날짜 + 산술 연산(+,-)
-SELECT SYSDATE -1, SYSDATE, SYSDATE +1
+SELECT SYSDATE -1 어제, SYSDATE 오늘, SYSDATE +1 내일
 FROM DUAL;
 -- 날짜에 +/- 연산 시 일 단위로 계산이 진행된다!
 
@@ -73,7 +75,7 @@ FROM DUAL;
  */
 
 
-SELECT SYSDATE -1 하루전, SYSDATE AS 현재시간, SYSDATE +1 내일
+SELECT SYSDATE -1 하루전, SYSDATE 현재시간, SYSDATE +1 내일
 FROM DUAL;
 
 ------------------------------------------------------------------
@@ -85,7 +87,7 @@ FROM DUAL;
 --> " " 쌍따옴표
 --		쌍따옴표 안에 작성되는 것들이 하나의 단어를 의미!
 
-SELECT EMP_NAME, SALARY, '원 입니다'
+SELECT EMP_NAME, SALARY, '원입니다.'
 FROM EMPLOYEE;
 
 -------------------------------------------------------------------
