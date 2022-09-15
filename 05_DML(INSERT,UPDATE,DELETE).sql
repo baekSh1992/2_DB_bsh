@@ -51,7 +51,7 @@ VALUES('900', '장채현', '901123-2345678', 'jang_ch@kh.or.kr', '01012341234',
        'D1', 'J7', 'S3', 4300000);  
 
 SELECT *FROM EMPLOYEE2
-WHERE EMP_ID = '900';
+--WHERE EMP_ID = '900';
       
 ROLLBACK;
 
@@ -94,27 +94,35 @@ SELECT * FROM EMP_01;
 -- WHERE 컬럼명 비교연산자 비교값;
 --> WHERE 조건 중요!
 
--- DEPARTMENT2 테이블에서 DEPT_ID가 'D9'인 부서 정보 조회
-SELECT * FROM DEPARTMENT2;
+-- DEPARTMENT2 테이블에서 DEPT_ID가 'D0'인 부서 정보 조회
+SELECT * FROM DEPARTMENT2
 
--- DEPARTMENT2 테이블에서 DEPT_ID가 'D9'인 행의 DEPT_TITLE을 '전략기획팀' 으로 수정
+-- DEPARTMENT2 테이블에서 DEPT_ID가 'D0'인 행의 DEPT_TITLE을 '전략기획팀' 으로 수정
 
 UPDATE DEPARTMENT2
-SET DEPT_TITLE = '전략기획팀'
-WHERE DEPT_ID = 'D9'
+SET DEPT_TITLE = '닭발3팀'
+WHERE DEPT_ID = 'T3';
 
 -- UPDATE 확인
 SELECT * FROM DEPARTMENT2
+
+ROLLBACK;
+
 COMMIT;
 
 
 
 -- EMPLOYEE2 테이블에서 BONUS를 받지 않는 사원의 
 -- BONUS를 0.1로 변경
+SELECT EMP_NAME, BONUS FROM EMPLOYEE2;
 
 UPDATE EMPLOYEE2
 SET BONUS = 0.1
 WHERE BONUS IS NULL;  -- 15행 수정 됨
+
+SELECT EMP_NAME, BONUS FROM EMPLOYEE2;
+
+ROLLBACK;
 
 SELECT EMP_NAME, BONUS FROM EMPLOYEE2;
 ---------------------------------------
@@ -163,13 +171,13 @@ SELECT * FROM DEPARTMENT2;
  SELECT  SALARY FROM EMPLOYEE2 WHERE EMP_NAME = '유재식';
 
 -- 유재식 보너스
- SELECT  BOUNS FROM EMPLOYEE2 WHERE EMP_NAME = '유재식';
+ SELECT  BONUS FROM EMPLOYEE2 WHERE EMP_NAME = '유재식';
 
 
 -- 방명수 급여 ,  보너스 쉉
 UPDATE EMPLOYEE2 SET
 SALARY = (SELECT  SALARY FROM EMPLOYEE2 WHERE EMP_NAME = '유재식'),
-BONUS  = (SELECT  BOUNS FROM EMPLOYEE2 WHERE EMP_NAME = '유재식')
+BONUS  = (SELECT  BONUS FROM EMPLOYEE2 WHERE EMP_NAME = '유재식')
 WHERE EMP_NAME = '방명수';
 
 SELECT EMP_NAME, SALARY,BONUS
@@ -242,7 +250,7 @@ SELECT * FROM EMP_M01;
 -- 테이블의 행을 삭제하는 구문
 
 -- [작성법]
--- DELTE FROM 테이블명 WHERE 조건설정
+-- DELETE FROM 테이블명 WHERE 조건설정
 -- 만약 WHERE 조건을 설정하지 않으면 모든 행이 다 삭제됨
 
 COMMIT;
@@ -261,7 +269,8 @@ ROLLBACK;
 -- EMPLOYEE2 테이블 전체 삭제
 SELECT * FROM EMPLOYEE2;
 
-DELETE FROM EMPLOYEE2; --> WHERE절 미작성 시 전체삭제 됨
+DELETE FROM EMPLOYEE2;  --> WHERE절 미작성 시 전체삭제 됨
+--WHERE EMP_ID = '200'; 
 
 ROLLBACK;
 ---------------------------------------------------------------------------------------------
