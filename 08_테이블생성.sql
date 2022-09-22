@@ -58,6 +58,7 @@ SELECT * FROM USER_TABLES; -- 사용자가 가지고 있는 테이블 조회
         -> ex) VARCHAR2(10) 컬럼에 'ABC' 3BYTE 문자열만 저장하면 나머지 7BYTE를 반환함.
         
     DATE : 날짜 타입
+    
     BLOB : 대용량 이진 데이터 (4GB)
     CLOB : 대용량 문자 데이터 (4GB)
 */
@@ -417,7 +418,8 @@ CREATE TABLE USER_USED_FK(
   GENDER VARCHAR2(10),
   PHONE VARCHAR2(30),
   EMAIL VARCHAR2(50),
-  GRADE_CODE NUMBER CONSTRAINT GRADE_CODE_FK REFERENCES USER_GRADE/*(GRADE_CODE)*/ -- 컬럼 레벨
+  GRADE_CODE NUMBER CONSTRAINT 
+  GRADE_CODE_FK REFERENCES USER_GRADE/*(GRADE_CODE)*/ -- 컬럼 레벨
 																		-- 컬럼명 미작성 시 USER_GRADE 테이블의 PK를 자동참조
   -- 테이블 레벨
 --  ,  CONSTRAINT GRADE_CODE_FK FOREIGN KEY(GRADE_CODE) REFERENCES USER_GRADE 
