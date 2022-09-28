@@ -102,7 +102,7 @@ MODIFY DEPT_TITLE NOT NULL;
 
 -- 현 상태에서 다시 VIEW를 이용한 INSERT 수행
 INSERT INTO V_DCOPY2 VALUES('D0', 'L3');
-
+SEQUENCE
 --> VIEW를 이용한 INSERT시 
 --		VIEW가 아닌 원본 테이블이 삽입이 진행된다.
 
