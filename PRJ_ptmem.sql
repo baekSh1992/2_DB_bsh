@@ -15,7 +15,7 @@ FROM PT_BOARD;
 
 -- 회원정보 테이블 생성
 CREATE TABLE PT_MEMBER(
-		MEM_NO NUMBER NOT NULL,
+		MEM_NO NUMBER,
 		MEM_NAME VARCHAR2(30) NOT NULL,
 		MEM_SSN VARCHAR2(30) NOT NULL,
 		MEM_HEIGHT NUMBER NOT NULL,
@@ -55,15 +55,15 @@ COMMIT;
 
 -- 아래 소스 설명하면, DBMS_RANDOM 을 통해 난수 발생시키고(1~1000), 
 -- 난수 값을 round (반올림) 한 것을 TEST 에 INSERT 한다. 위 행위를 5번 반복한다.
-INSERT INTO PT_MEMBER
-SELECT  ROUND(DBMS_RANDOM.vALUE(6, 50), 0),
-               ROUND(DBMS_RANDOM.vALUE(NULL),
-               ROUND(DBMS_RANDOM.vALUE(1, 1000), 0),
-               ROUND(DBMS_RANDOM.vALUE(1, 1000), 0),
-               ROUND(DBMS_RANDOM.vALUE(1, 1000), 0),
-               ROUND(DBMS_RANDOM.vALUE(1, 1000), 0)
-FROM dual
-CONNECT BY LEVEL <= 5;
+--INSERT INTO PT_MEMBER
+--SELECT  ROUND(DBMS_RANDOM.vALUE(6, 50), 0),
+--               ROUND(DBMS_RANDOM.vALUE(NULL),
+--               ROUND(DBMS_RANDOM.vALUE(1, 1000), 0),
+--               ROUND(DBMS_RANDOM.vALUE(1, 1000), 0),
+--               ROUND(DBMS_RANDOM.vALUE(1, 1000), 0),
+--               ROUND(DBMS_RANDOM.vALUE(1, 1000), 0)
+--FROM dual
+--CONNECT BY LEVEL <= 5;
 
 
 SELECT * FROM PT_MEMBER;
